@@ -1,90 +1,49 @@
-"""
-Transforms and Loads data into Azure Databricks
-"""
-import os
-from databricks import sql
-import pandas as pd
-from dotenv import load_dotenv
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import monotonically_increasing_id
 
+def load(dataset="dbfs:/FileStore/Individual_Project3_Kelly_Tong/"
+                "women_stem.csv"):
+    spark = SparkSession.builder.appName("Read CSV").getOrCreate()
+    # load csv and transform it by inferring schema
+    women_stem_df = spark.read.csv(
+        dataset, header=True, inferSchema=True
+    )
 
-# load the csv file and insert into databricks
-def load(dataset="data/women_stem.csv", dataset2="data/all_ages.csv"):
-    """Transforms and Loads data into the local databricks database"""
-    df = pd.read_csv(dataset, delimiter=",", skiprows=1)
-    df2 = pd.read_csv(dataset2, delimiter=",", skiprows=1)
-    load_dotenv()
-    server_h = os.getenv("SERVER_HOSTNAME")
-    server_h = server_h.strip('"')
-    print(f"Server Hostname: {server_h}")
-    access_token = os.getenv("ACCESS_TOKEN")
-    http_path = os.getenv("HTTP_PATH")
-    with sql.connect(
-        server_hostname=server_h,
-        http_path=http_path,
-        access_token=access_token,
-    ) as connection:
-        c = connection.cursor()
-        # INSERT TAKES TOO LONG
-        # c.execute("DROP TABLE IF EXISTS women_stemDB")
-        c.execute("SHOW TABLES FROM default LIKE 'serve*'")
-        result = c.fetchall()
-        # takes too long so not dropping anymore
-        # c.execute("DROP TABLE IF EXISTS all_agesDB")
-        if not result:
-            c.execute(
-                """
-                CREATE TABLE IF NOT EXISTS women_stemDB (
-                    Rank int, 
-                    Major_code int,
-                    Major string,
-                    Major_category string,
-                    Total int,
-                    Men int, 
-                    Women int, 
-                    ShareWomen int, 
-                    Median int
-                )
-            """
-            )
-            # insert
-            for _, row in df.iterrows():
-                convert = tuple(row)
-                try:
-                    c.execute(f"INSERT INTO women_stemDB VALUES {convert}")
-                except Exception as e:
-                    print(f"Problematic row: {convert}")
-                    print(f"Exception: {e}")
-                    break  # Stop after the first error for easier debugging
-                #c.execute(f"INSERT INTO women_stemDB VALUES {convert}")
-        c.execute("SHOW TABLES FROM default LIKE 'event*'")
-        result = c.fetchall()
-        # c.execute("DROP TABLE IF EXISTS all_agesDB")
-        if not result:
-            c.execute(
-                """
-                CREATE TABLE IF NOT EXISTS all_agesDB (
-                    Major_code int,
-                    Major string,
-                    Major_category string,
-                    Total int,
-                    Employed int, 
-                    Employed_full_time_year_round int, 
-                    Unemployed int,
-                    Unemployment_rate int, 
-                    Median int, 
-                    P25th int, 
-                    P75th int
-                )
-                """
-            )
-            for _, row in df2.iterrows():
-                convert = (_,) + tuple(row)
-                try:
-                    c.execute(f"INSERT INTO all_agesDB VALUES {convert}")
-                except Exception as e:
-                    print(f"Problematic row: {convert}")
-                    print(f"Exception: {e}")
-                    break  # Stop after the first error for easier debugging
-        c.close()
+    columns = women_stem_df.columns
 
-    return "success"
+    # Calculate mid index
+    mid_idx = len(columns) // 2
+
+    # Split columns into two halves
+    columns1 = columns[:mid_idx]
+    columns2 = columns[mid_idx:]
+
+    # Create two new DataFrames
+    women_stem_df1 = women_stem_df1.select(*columns1)
+    women_stem_df2 = women_stem_df2.select(*columns2)
+
+    # add unique IDs to the DataFrames
+    women_stem_df1 = women_stem_df1.withColumn(
+        "id", monotonically_increasing_id()
+    )
+    women_stem_df2 = women_stem_df2.withColumn(
+        "id", monotonically_increasing_id()
+    )
+
+    # transform into a delta lakes table and store it
+    women_stem_df1.write.format("delta").mode("overwrite").saveAsTable(
+        "women_stem1"
+    )
+    women_stem_df2.write.format("delta").mode("overwrite").saveAsTable(
+        "women_stem2"
+    )
+    
+    num_rows = women_stem_df1.count()
+    print(num_rows)
+    num_rows2 = women_stem_df2.count()
+    print(num_rows2)
+    
+    return "finished transform and load"
+
+if __name__ == "__main__":
+    load()
