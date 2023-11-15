@@ -31,7 +31,7 @@ This repository is for IDS706 Individual Project 3.
 ## Github actions
 Status badges for CI.yml
 `CI.yml`
-[![CI](https://github.com/nogibjj/Miniproject7_KellyTong/actions/workflows/CI.yml/badge.svg)](https://github.com/nogibjj/Miniproject7_KellyTong/actions/workflows/CI.yml)
+[![CI](https://github.com/nogibjj/Individual_Project3_Kelly_Tong/actions/workflows/CI.yml/badge.svg)](https://github.com/nogibjj/Individual_Project3_Kelly_Tong/actions/workflows/CI.yml)
 
 ## Key Functions
 
