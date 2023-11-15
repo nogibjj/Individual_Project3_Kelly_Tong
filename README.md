@@ -3,14 +3,6 @@
 This repository is for IDS706 Individual Project 3. 
 
 ## Purpose 
-    This repository is for building an ETL-Query pipeline. 
-    Github actions such as extract, transform and load, and query are included. 
-    A local csv file is extracted from a url and then cleaned and loaded into a .db file.
-    In this case, the two datasets (csv files) are extracted into women_stem.db and 
-    all_ages.db which store the information about major and employment. 
-    A Cloud Database (MySQL) is hosted in Azure and connected to this Github repository 
-    through secret variables access_tokens, host_name and HTTP_path. 
-    Setup tools are used to package the Python script. 
     
 ## Important Things included are:
 - ``.devcontainer`` includes a Dockerfile and devcontainer.json.
@@ -40,7 +32,11 @@ Status badges for CI.yml
 `CI.yml`
 [![CI](https://github.com/nogibjj/Miniproject7_KellyTong/actions/workflows/CI.yml/badge.svg)](https://github.com/nogibjj/Miniproject7_KellyTong/actions/workflows/CI.yml)
 
-## Results
+## Key Functions
+
+## Preparation
+
+## Visualizations
 By running command: python main.py
 
 `extract`
