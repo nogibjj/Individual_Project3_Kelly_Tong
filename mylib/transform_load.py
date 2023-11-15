@@ -19,8 +19,8 @@ def load(dataset="dbfs:/FileStore/Individual_Project3_Kelly_Tong/"
     columns2 = columns[mid_idx:]
 
     # Create two new DataFrames
-    women_stem_df1 = women_stem_df1.select(*columns1)
-    women_stem_df2 = women_stem_df2.select(*columns2)
+    women_stem_df1 = women_stem_df.select(*columns1)
+    women_stem_df2 = women_stem_df.select(*columns2)
 
     # add unique IDs to the DataFrames
     women_stem_df1 = women_stem_df1.withColumn(
