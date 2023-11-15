@@ -8,7 +8,7 @@ import base64
 load_dotenv()
 server_h = os.getenv("SERVER_HOSTNAME")
 access_token = os.getenv("ACCESS_TOKEN")
-FILESTORE_PATH = "dbfs:/FileStore/Individual_Project3_Kelly_Tong"
+FILESTORE_PATH = "dbfs:/FileStore/tables/Individual_Project3_Kelly_Tong"
 headers = {'Authorization': 'Bearer %s' % access_token}
 url = "https://"+server_h+"/api/2.0"
 
@@ -19,13 +19,21 @@ def perform_query(path, headers, data={}):
                            data=json.dumps(data), 
                            verify=True, 
                            headers=headers)
-    return resp.json()
+    if resp.json():
+        return resp.json()
+    else:
+        return None
+    #return resp.json()
 
 
 def mkdirs(path, headers):
     _data = {}
     _data['path'] = path
-    return perform_query('/dbfs/mkdirs', headers=headers, data=_data)
+    response = perform_query('/dbfs/mkdirs', headers=headers, data=_data)
+    if response and response.get('is_dir') == True:
+        return True
+    else:
+        return False
   
 
 def create(path, overwrite, headers):
@@ -49,6 +57,10 @@ def close(handle, headers):
 
 
 def put_file_from_url(url, dbfs_path, overwrite, headers):
+    if not mkdirs(os.path.dirname(dbfs_path), headers=headers):
+        print(f"Error creating folder {os.path.dirname(dbfs_path)}.")
+        return
+      
     response = requests.get(url)
     if response.status_code == 200:
         content = response.content

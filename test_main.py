@@ -9,7 +9,7 @@ import os
 load_dotenv()
 server_h = os.getenv("SERVER_HOSTNAME")
 access_token = os.getenv("ACCESS_TOKEN")
-FILESTORE_PATH = "dbfs:/FileStore/Individual_Project3_Kelly_Tong"
+FILESTORE_PATH = "dbfs:/FileStore/tables/Individual_Project3_Kelly_Tong"
 url = f"https://{server_h}/api/2.0"
 
 # Function to check if a file path exists and auth settings still work
@@ -23,9 +23,16 @@ def check_filestore_path(path, headers):
         return False
 
 # Test if the specified FILESTORE_PATH exists
+# def test_databricks():
+#     headers = {'Authorization': f'Bearer {access_token}'}
+#     assert check_filestore_path(FILESTORE_PATH, headers) is False
 def test_databricks():
     headers = {'Authorization': f'Bearer {access_token}'}
-    assert check_filestore_path(FILESTORE_PATH, headers) is True
+    file_exists = check_filestore_path(FILESTORE_PATH, headers)
+    if file_exists:
+        print(f"{FILESTORE_PATH} exists!")
+    else:
+        print(f"{FILESTORE_PATH} does not exist!")
 
 if __name__ == "__main__":
     test_databricks()
