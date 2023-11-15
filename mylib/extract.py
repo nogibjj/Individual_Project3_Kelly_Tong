@@ -26,11 +26,19 @@ def perform_query(path, headers, data={}):
     #return resp.json()
 
 
+# def mkdirs(path, headers):
+#     _data = {}
+#     _data['path'] = path
+#     response = perform_query('/dbfs/mkdirs', headers=headers, data=_data)
+#     if response and response.get('is_dir') == True:
+#         return True
+#     else:
+#         return False
+
 def mkdirs(path, headers):
-    _data = {}
-    _data['path'] = path
+    _data = {'path': path}
     response = perform_query('/dbfs/mkdirs', headers=headers, data=_data)
-    if response and response.get('is_dir') == True:
+    if response and response.get('is_dir'):
         return True
     else:
         return False
