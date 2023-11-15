@@ -35,7 +35,7 @@ Status badges for CI.yml
 ## Key Functions
 
 ## Preparation
-
+1. 
 ## Visualizations
 By running command: python main.py
 
