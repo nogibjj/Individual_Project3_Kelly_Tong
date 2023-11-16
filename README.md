@@ -1,6 +1,6 @@
 # IDS 706 Individual Project 3: Databricks ETL Pipeline
 
-This repository is for IDS706 Individual Project 3: Databricks ETL Pipeline. 
+This repository is for IDS706 Individual Project 3: Databricks ETL Pipeline.  
 
 ## Video Demo
 
