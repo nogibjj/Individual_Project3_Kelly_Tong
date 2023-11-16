@@ -29,8 +29,10 @@ More building process and query results are included in sectons below.
 
 - ``setup.py`` setup the local packages for python, specify the dependencies required in the package. This executes the ETL streamline commands which can be called by a Makefile commnd. 
 
-- ``mylib`` includes ``extract.py`` ``transform_load.py`` and ``query.py`` which are used to extract
+- ``mylib`` includes ``extract.py`` ``transform_load.py`` and ``query_viz.py`` which are used to extract
   a csv from an url, clean it and return a db file.
+
+- ``run_job.py`` is included in a makefile command ``Makefile`` and in ``CI.yml`` to perform automatic run of the databrick job when Github Action is triggered through push. 
 
 ## Github actions
 Status badges for CI.yml
