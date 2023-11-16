@@ -119,6 +119,9 @@ Catalog:
 
 ## Building Process
 
+All required dependencies are included in `requirements.txt` file and will be downloaded through `make install` command. 
+These dependencies are also added onto each job run task in Databricks to support automatic job run workflow. 
+
 Github Actios such as  `make lint` `make format` `make test` are also included and performed
 
 <img width="565" alt="make lint" src="https://github.com/nogibjj/Individual_Project3_Kelly_Tong/assets/142815940/e9f92033-c271-4400-99a9-77646477db3b">
