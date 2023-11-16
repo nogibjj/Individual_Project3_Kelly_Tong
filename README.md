@@ -59,7 +59,7 @@ Status badges for CI.yml
 - Incorporates a function in `test_main.py` to verify the existence of specific file paths within the Databricks FileStore. This step is vital to ensure that the necessary data files are available and accessible for processing.
 - Includes testing protocols to validate the connection to the Databricks API, thereby ensuring the reliability and functionality of the entire data pipeline.
 
-**Automation:**
+**Automation (Automated Trigger):**
 - Implements an automated trigger mechanism using the Databricks API. This mechanism is designed to initiate a pipeline run automatically in response to a new push event in the associated GitHub repository.
 - This automation enhances the pipeline's efficiency, allowing for seamless updates and integrations of new data or code changes into the analysis workflow.
 - `run_job.py` is included in `CI.yml` as "run databricks job" to automatically run databricks jobs when Github action is triggered through push. 
@@ -116,6 +116,9 @@ DBFS:
 Catalog: 
 
 <img width="1202" alt="catalog data source" src="https://github.com/nogibjj/Individual_Project3_Kelly_Tong/assets/142815940/a138d5db-3ac3-45cb-aab1-730e820b522e">
+
+## Conclusion and Recommendation
+
 
 ## Building Process
 
