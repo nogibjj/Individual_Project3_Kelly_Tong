@@ -62,6 +62,7 @@ Status badges for CI.yml
 **Automation:**
 - Implements an automated trigger mechanism using the Databricks API. This mechanism is designed to initiate a pipeline run automatically in response to a new push event in the associated GitHub repository.
 - This automation enhances the pipeline's efficiency, allowing for seamless updates and integrations of new data or code changes into the analysis workflow.
+- `run_job.py` is included in `CI.yml` to automatically run databricks jobs when Github action is triggered through push. 
 - Automation is also achieved by creating a job workflows in databricks to allow running extract, transform_load and query_viz in one job environment. 
 
 ## Preparation
@@ -87,59 +88,33 @@ Status badges for CI.yml
 
 ![visual](https://github.com/nogibjj/Individual_Project3_Kelly_Tong/assets/142815940/cef9a6a0-05a1-44c6-8fbf-790954483f22)
 
+## Data Source, Data Sink (Delta Lake), and ETL Pipeline
+
+`Extraction` : Data Source (Individual_Project3_Kelly_Tong/mylib/extract.py) 
+`Transform_load`: Data Sink (Delta Lake) (Individual_Project3_Kelly_Tong/mylib/transform_load.py) 
+`Query_viz`: perform query and generate visualization task (Individual_Project3_Kelly_Tong/mylib/query_viz.py) 
+
+Job pipeline in Databricks Workflows: 
+
+<img width="765" alt="Individual3 Job Run" src="https://github.com/nogibjj/Individual_Project3_Kelly_Tong/assets/142815940/4375882b-a94e-4e1c-ba57-808f4087f45e">
+
+## Data Source Storing in DBFS
+
+DBFS: 
+
+<img width="1159" alt="DBFS" src="https://github.com/nogibjj/Individual_Project3_Kelly_Tong/assets/142815940/348dc611-d298-4361-a73b-ebf5d1ecae63">
+
+Catalog: 
+
+<img width="1202" alt="catalog data source" src="https://github.com/nogibjj/Individual_Project3_Kelly_Tong/assets/142815940/a138d5db-3ac3-45cb-aab1-730e820b522e">
 
 ## Building Process
 
-The building process starts with installing the packages. 
+Github Actios such as  `make lint` `make format` `make test` are also included and performed
 
+<img width="565" alt="make lint" src="https://github.com/nogibjj/Individual_Project3_Kelly_Tong/assets/142815940/e9f92033-c271-4400-99a9-77646477db3b">
 
-`make install`
+<img width="418" alt="make format" src="https://github.com/nogibjj/Individual_Project3_Kelly_Tong/assets/142815940/b812c5b2-d6cf-4e94-9bd6-b2029dc5c66d">
 
-**Make install** calls the command pip install --upgrade pip &&\pip install -r requirements.txt
+<img width="949" alt="make test" src="https://github.com/nogibjj/Individual_Project3_Kelly_Tong/assets/142815940/68081ddb-48dc-4d71-be25-485f793943e0">
 
-<img width="820" alt="截屏2023-10-02 23 40 02" src="https://github.com/nogibjj/MiniProject5_KellyTong/assets/142815940/ba733b30-5da5-4f44-b2c1-237813b0597c">
-
-`make setup_package`
-
-**Make setup_package** calls the command python setup.py develop --user
-
-<img width="604" alt="setup_package" src="https://github.com/nogibjj/Miniproject7_KellyTong/assets/142815940/85a0d2d7-36d5-4525-87f8-c9f72002a0eb">
-
-`make extract`
-
-**make extract**
-
-<img width="600" alt="截屏2023-10-02 23 35 30" src="https://github.com/nogibjj/MiniProject5_KellyTong/assets/142815940/3c644d65-ea4a-4e7a-ae3e-fcc405432b60">
-
-`make transform_load`
-
-**make transform_load**
-
-<img width="257" alt="截屏2023-10-02 23 34 17" src="https://github.com/nogibjj/MiniProject5_KellyTong/assets/142815940/12959752-a54c-41cd-ae19-4c701eec414a">
-
-`make query`
-
-**make query**
-
-<img width="206" alt="截屏2023-10-02 23 34 21" src="https://github.com/nogibjj/MiniProject5_KellyTong/assets/142815940/9bd70437-5329-47bb-9614-431981068365">
-
-`make lint`
-
-**Make lint** calls the command pylint --disable=R,C --ignore-patterns=test_.*?py *.py
-<img width="457" alt="make lint" src="https://github.com/Kelly0604/miniproject2/assets/142815940/39a19764-a6cc-4eaa-977f-7433b8915dad">
-
-`make test`
-
-**Make test** calls the command python -m pytest -vv --cov=main test_*.py
-
-<img width="600" alt="截屏2023-10-02 23 35 30" src="https://github.com/nogibjj/MiniProject5_KellyTong/assets/142815940/44f27727-bcde-4e38-a6fb-df691f22033e">
-
-`make format`
-
-**Make format** calls the command black *.py
-
-<img width="299" alt="make format" src="https://github.com/Kelly0604/miniproject2/assets/142815940/41df08ca-d8f7-4b62-b88b-1f39f1a7d858">
-
-## Visualization for how the process work
-
-![1_xHSzARQPes6JhHe_jNGRdg](https://github.com/nogibjj/MiniProject5_KellyTong/assets/142815940/57a7ce64-dab8-40c3-a066-87fe9862dd41)
