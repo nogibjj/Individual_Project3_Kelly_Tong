@@ -85,6 +85,9 @@ Status badges for CI.yml
 **5. Repository Cloning:**
     Directly clone your project’s repository into the Databricks workspace. This step brings your codebase into the Databricks environment for execution and further development.
 
+    <img width="1182" alt="clone" src="https://github.com/nogibjj/Individual_Project3_Kelly_Tong/assets/142815940/2c1e9ac9-a44d-48fa-9c5d-76a977707a2d">
+
+
 **6. Job Automation:**
     Create and configure a Databricks job. This job will automate the execution of your data pipeline, streamlining the process and ensuring regular, reliable operation.
 
