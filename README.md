@@ -39,6 +39,31 @@ Status badges for CI.yml
 
 ## Key Functions
 
+**Data Extraction:**
+- Initiates a process to download the `women_stem.csv` dataset, which contains data on women's participation in STEM (Science, Technology, Engineering, and Mathematics) fields, through HTTP requests.
+- Once downloaded, the dataset is stored in the Databricks FileStore, setting the stage for its subsequent processing and analysis.
+
+**Databricks Environment Variables:**
+- Configures the Databricks environment by setting critical environment variables, such as `SERVER_HOSTNAME` and `ACCESS_TOKEN`. These variables are essential for authenticating and establishing secure connections to the Databricks services.
+- Ensures the environment is tailored to handle the specific requirements of processing and analyzing the women in STEM dataset.
+
+**Data Transform and Load:**
+- Processes the raw `women_stem.csv` data by converting it into a Spark dataframe. This step is crucial for leveraging Spark's powerful data processing capabilities.
+- Transforms the Spark dataframe into a Delta Lake Table. This transformation allows for better management and versioning of the dataset, facilitating more efficient and reliable data operations within the Databricks environment.
+
+**Data Query, Analysis and Visualization:**
+- Conducts comprehensive data analysis on the transformed dataset using Spark SQL. This analysis aims to uncover insights about women's participation and trends in STEM fields.
+- Employs various data visualization techniques to represent the analytical findings graphically. These visualizations aid in interpreting the data more intuitively and effectively, highlighting key patterns and trends.
+
+**File Path Testing:**
+- Incorporates a function to verify the existence of specific file paths within the Databricks FileStore. This step is vital to ensure that the necessary data files are available and accessible for processing.
+- Includes testing protocols to validate the connection to the Databricks API, thereby ensuring the reliability and functionality of the entire data pipeline.
+
+**Automation:**
+- Implements an automated trigger mechanism using the Databricks API. This mechanism is designed to initiate a pipeline run automatically in response to a new push event in the associated GitHub repository.
+- This automation enhances the pipeline's efficiency, allowing for seamless updates and integrations of new data or code changes into the analysis workflow.
+- Automation is also achieved by creating a job workflows in databricks to allow running extract, transform_load and query_viz in one job environment. 
+
 ## Preparation
 **1. Establish a Databricks Workspace:**
     Initiate a Databricks workspace within a cloud environment, such as Azure, to leverage its data processing and analytics capabilities.
