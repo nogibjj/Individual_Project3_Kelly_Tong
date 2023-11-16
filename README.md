@@ -3,7 +3,11 @@
 This repository is for IDS706 Individual Project 3. 
 
 ## Purpose 
-
+This repository includes the python code for creating a Data Processing Pipeline that can operate in Databricks. 
+This pipeline includes functions in extracting, transforming and loading, as well as a query fuction that generate a visualization.
+This entire repository can be clone in Databricks to perform job run and editing in workspace. 
+Both python libraries and Databricks are used to facilitate efficient data processing and analysis job. 
+More building process and query results are included in sectons below. 
     
 ## Important Things included are:
 - ``.devcontainer`` includes a Dockerfile and devcontainer.json.
@@ -36,17 +40,27 @@ Status badges for CI.yml
 ## Key Functions
 
 ## Preparation
-1. 
+**1. Establish a Databricks Workspace:**
+    Initiate a Databricks workspace within a cloud environment, such as Azure, to leverage its data processing and analytics capabilities.
+
+**2. GitHub Integration:**
+    Link your GitHub account with the Databricks Workspace to facilitate seamless code management and version control.
+    
+**3. Initialization Script Setup:**
+    In your Databricks cluster, implement a global initialization script. This script should define necessary environment variables, ensuring a consistent runtime environment.
+
+**4. Cluster Configuration for PySpark:**
+    Configure and activate a Databricks cluster that is optimized for running PySpark applications, enabling efficient processing of large-scale data with Spark and Python.
+
+**5. Repository Cloning:**
+    Directly clone your project’s repository into the Databricks workspace. This step brings your codebase into the Databricks environment for execution and further development.
+
+**6. Job Automation:**
+    Create and configure a Databricks job. This job will automate the execution of your data pipeline, streamlining the process and ensuring regular, reliable operation.
+
 ## Visualizations
-By running command: python main.py
 
-`extract`
-
-<img width="466" alt="截屏2023-10-02 23 32 09" src="https://github.com/nogibjj/MiniProject5_KellyTong/assets/142815940/ff1ce85c-030f-4762-85d2-408fba3d9a37">
-
-`transform_load`
-`query`
-<img width="775" alt="截屏2023-10-02 23 27 28" src="https://github.com/nogibjj/MiniProject5_KellyTong/assets/142815940/14e70102-7963-40e4-883d-d3c697ef6984">
+![visual](https://github.com/nogibjj/Individual_Project3_Kelly_Tong/assets/142815940/cef9a6a0-05a1-44c6-8fbf-790954483f22)
 
 
 ## Building Process
