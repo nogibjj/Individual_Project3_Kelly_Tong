@@ -119,7 +119,7 @@ Catalog:
 
 ## Conclusion and Recommendation
 
-The visualization (in visualizations section above) demonstrates that Biology is the most popular discipline with the higest total population (men and women in total) among all selected major. This is, however, different from data included in all_ages.csv. Further research into all_ages and grad_students data have suggested other more popular discipline/major for men and women. This could be caused by the limited majors included in this dataset. Potential recommendation on expanding the sample size and range could benefit the data accuracy and provide more careful and meaningful conclusion. 
+The visualization (in visualizations section above) demonstrates that Biology is the most popular discipline with the higest total population (men and women in total) among all selected major. This is, however, different from data included in all_ages.csv. Further research into all_ages and grad_students data have suggested other more popular discipline/major for men and women. This could be caused by the limited majors included in this dataset. Potential recommendation on expanding the sample size and range could benefit the data accuracy and provide more careful and meaningful conclusion. This could also be due to the fact that women_stem.csv is a subset of another dataset, meaning that not the complete view is being provided here. A comparison between women_stem dataset with the original full pictured dataset could be an improvement and extension of the currently approached discovery. 
 
 ## Building Process
 
