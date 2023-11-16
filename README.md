@@ -62,7 +62,7 @@ Status badges for CI.yml
 **Automation:**
 - Implements an automated trigger mechanism using the Databricks API. This mechanism is designed to initiate a pipeline run automatically in response to a new push event in the associated GitHub repository.
 - This automation enhances the pipeline's efficiency, allowing for seamless updates and integrations of new data or code changes into the analysis workflow.
-- `run_job.py` is included in `CI.yml` to automatically run databricks jobs when Github action is triggered through push. 
+- `run_job.py` is included in `CI.yml` as "run databricks job" to automatically run databricks jobs when Github action is triggered through push. 
 - Automation is also achieved by creating a job workflows in databricks to allow running extract, transform_load and query_viz in one job environment. 
 
 ## Preparation
@@ -85,7 +85,7 @@ Status badges for CI.yml
 **5. Repository Cloning:**
     Directly clone your project’s repository into the Databricks workspace. This step brings your codebase into the Databricks environment for execution and further development.
 
-    <img width="1182" alt="clone" src="https://github.com/nogibjj/Individual_Project3_Kelly_Tong/assets/142815940/2c1e9ac9-a44d-48fa-9c5d-76a977707a2d">
+<img width="1182" alt="clone" src="https://github.com/nogibjj/Individual_Project3_Kelly_Tong/assets/142815940/0117bb7e-c6bb-4485-9a52-1e5805a6bf99">
 
 
 **6. Job Automation:**
