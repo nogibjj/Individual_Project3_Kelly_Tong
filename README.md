@@ -55,8 +55,8 @@ Status badges for CI.yml
 - Conducts comprehensive data analysis on the transformed dataset using Spark SQL. This analysis aims to uncover insights about women's participation and trends in STEM fields.
 - Employs various data visualization techniques to represent the analytical findings graphically. These visualizations aid in interpreting the data more intuitively and effectively, highlighting key patterns and trends.
 
-**File Path Testing:**
-- Incorporates a function to verify the existence of specific file paths within the Databricks FileStore. This step is vital to ensure that the necessary data files are available and accessible for processing.
+**Data Validation: File Path Testing:**
+- Incorporates a function in `test_main.py` to verify the existence of specific file paths within the Databricks FileStore. This step is vital to ensure that the necessary data files are available and accessible for processing.
 - Includes testing protocols to validate the connection to the Databricks API, thereby ensuring the reliability and functionality of the entire data pipeline.
 
 **Automation:**
