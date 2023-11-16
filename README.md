@@ -71,6 +71,10 @@ Status badges for CI.yml
 
 **2. GitHub Integration:**
     Link your GitHub account with the Databricks Workspace to facilitate seamless code management and version control.
+
+    
+    <img width="795" alt="Link Account Databrick" src="https://github.com/nogibjj/Individual_Project3_Kelly_Tong/assets/142815940/27e2c753-aeda-406f-ba8a-b1b25b1523b8">
+
     
 **3. Initialization Script Setup:**
     In your Databricks cluster, implement a global initialization script. This script should define necessary environment variables, ensuring a consistent runtime environment.
