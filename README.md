@@ -2,6 +2,9 @@
 
 This repository is for IDS706 Individual Project 3. 
 
+## Video Demo
+
+
 ## Purpose 
 This repository includes the python code for creating a Data Processing Pipeline that can operate in Databricks. 
 This pipeline includes functions in extracting, transforming and loading, as well as a query fuction that generate a visualization.
