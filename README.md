@@ -3,7 +3,7 @@
 This repository is for IDS706 Individual Project 3: Databricks ETL Pipeline.  
 
 ## Video Demo
-
+Video Demo can be found in : [individual project 3 demo video youtube](https://youtu.be/WgbmADD6vBk)
 
 ## Purpose 
 This repository includes the python code for creating a Data Processing Pipeline that can operate in Databricks. 
