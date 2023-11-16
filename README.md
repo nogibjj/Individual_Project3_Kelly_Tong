@@ -91,7 +91,9 @@ Status badges for CI.yml
 ## Data Source, Data Sink (Delta Lake), and ETL Pipeline
 
 `Extraction` : Data Source (Individual_Project3_Kelly_Tong/mylib/extract.py) 
+
 `Transform_load`: Data Sink (Delta Lake) (Individual_Project3_Kelly_Tong/mylib/transform_load.py) 
+
 `Query_viz`: perform query and generate visualization task (Individual_Project3_Kelly_Tong/mylib/query_viz.py) 
 
 Job pipeline in Databricks Workflows: 
