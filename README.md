@@ -73,7 +73,7 @@ Status badges for CI.yml
     Link your GitHub account with the Databricks Workspace to facilitate seamless code management and version control.
 
     
-    <img width="795" alt="Link Account Databrick" src="https://github.com/nogibjj/Individual_Project3_Kelly_Tong/assets/142815940/27e2c753-aeda-406f-ba8a-b1b25b1523b8">
+<img width="795" alt="Link Account Databrick" src="https://github.com/nogibjj/Individual_Project3_Kelly_Tong/assets/142815940/cf3aea9d-2b40-4f15-a564-2ccbbde29db6">
 
     
 **3. Initialization Script Setup:**
